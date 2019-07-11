@@ -63,6 +63,8 @@ import dev.dworks.apps.anexplorer.model.DocumentsContract;
 import dev.dworks.apps.anexplorer.model.RootInfo;
 import dev.dworks.apps.anexplorer.provider.AppsProvider;
 import dev.dworks.apps.anexplorer.setting.SettingsActivity;
+import needle.Needle;
+import needle.UiRelatedTask;
 
 import static dev.dworks.apps.anexplorer.BaseActivity.State.MODE_GRID;
 import static dev.dworks.apps.anexplorer.DocumentsApplication.isTelevision;
@@ -71,6 +73,7 @@ import static dev.dworks.apps.anexplorer.adapter.HomeAdapter.TYPE_MAIN;
 import static dev.dworks.apps.anexplorer.adapter.HomeAdapter.TYPE_RECENT;
 import static dev.dworks.apps.anexplorer.adapter.HomeAdapter.TYPE_SHORTCUT;
 import static dev.dworks.apps.anexplorer.misc.AnalyticsManager.FILE_TYPE;
+import static dev.dworks.apps.anexplorer.model.RootInfo.openRoot;
 import static dev.dworks.apps.anexplorer.provider.AppsProvider.getRunningAppProcessInfo;
 
 /**
@@ -122,37 +125,43 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
             mAdapter = new HomeAdapter(getActivity(), data, mIconHelper);
             mAdapter.setOnItemClickListener(this);
         }
-
-        roots = DocumentsApplication.getRootsCache(getActivity());
-        mHomeRoot = roots.getHomeRoot();
+        setListShown(false);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         showData();
-        registerReceiver();
+        // registerReceiver();
     }
 
     @Override
     public void onPause() {
-        unRegisterReceiver();
+        // unRegisterReceiver();
         super.onPause();
     }
 
     public void showData(){
+        if(!Utils.isActivityAlive(getActivity())){
+            return;
+        }
         roots = DocumentsApplication.getRootsCache(getActivity());
+        if (null == roots){
+            return;
+        }
+        setListShown(false);
         mIconHelper.setThumbnailsEnabled(mActivity.getDisplayState().showThumbnail);
         getMainData();
         getShortcutsData();
-        getRecentsData();
         ArrayList<CommonInfo> data = new ArrayList<>();
         data.addAll(mainData);
         data.addAll(shortcutsData);
         mAdapter.setData(data);
+        getRecentsData();
     }
 
     private void getMainData(){
+        mHomeRoot = roots.getHomeRoot();
         mainData = new ArrayList<>();
         final RootInfo primaryRoot = roots.getPrimaryRoot();
         final RootInfo secondaryRoot = roots.getSecondaryRoot();
@@ -213,11 +222,13 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
                 if(null != result.cursor && result.cursor.getCount() != 0) {
                     mAdapter.setRecentData(new LimitCursorWrapper(result.cursor, MAX_RECENT_COUNT));
                 }
+                setListShown(true);
             }
 
             @Override
             public void onLoaderReset(Loader<DirectoryResult> loader) {
                 mAdapter.setRecentData(null);
+                setListShown(true);
             }
         };
         if(SettingsActivity.getDisplayRecentMedia()) {
@@ -245,10 +256,14 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
         switch (item.commonInfo.type) {
             case TYPE_MAIN:
             case TYPE_SHORTCUT:
+                if(null == item.commonInfo.rootInfo){
+                    return;
+                }
                 if(item.commonInfo.rootInfo.rootId.equals("clean")){
                     cleanRAM();
                 } else {
-                    openRoot(item.commonInfo.rootInfo);
+                    DocumentsActivity activity = ((DocumentsActivity)getActivity());
+                    openRoot(activity, item.commonInfo.rootInfo, mHomeRoot);
                 }
                 break;
             case TYPE_RECENT:
@@ -269,7 +284,8 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
     public void onItemViewClick(HomeAdapter.ViewHolder item, View view, int position) {
         switch (view.getId()) {
             case R.id.recents:
-                openRoot(roots.getRecentsRoot());
+                DocumentsActivity activity = ((DocumentsActivity)getActivity());
+                openRoot(activity, roots.getRecentsRoot(), mHomeRoot);
                 break;
 
             case R.id.action:
@@ -355,17 +371,13 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
         return ((BaseActivity) fragment.getActivity()).getDisplayState();
     }
 
-    private void openRoot(RootInfo rootInfo){
-        DocumentsActivity activity = ((DocumentsActivity)getActivity());
-        activity.onRootPicked(rootInfo, mHomeRoot);
-        AnalyticsManager.logEvent("open_shortcuts", rootInfo ,new Bundle());
-    }
-
     public void cleanupMemory(Context context){
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> runningProcessesList = getRunningAppProcessInfo(context);
         for (ActivityManager.RunningAppProcessInfo processInfo : runningProcessesList) {
-            activityManager.killBackgroundProcesses(processInfo.processName);
+            try {
+                activityManager.killBackgroundProcesses(processInfo.processName);
+            } catch (Exception e) {}
         }
     }
 
@@ -382,12 +394,6 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
         super.onActivityCreated(savedInstanceState);
 
         setListAdapter(mAdapter);
-        showData();
-        if (isResumed()) {
-            setListShown(true);
-        } else {
-            setListShownNoAnimation(true);
-        }
 
         ((GridLayoutManager)getListView().getLayoutManager()).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override

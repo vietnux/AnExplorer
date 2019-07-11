@@ -53,7 +53,6 @@ import java.util.Locale;
 
 import androidx.annotation.IntDef;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.text.TextUtilsCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
@@ -66,6 +65,8 @@ import dev.dworks.apps.anexplorer.setting.SettingsActivity;
 
 import static android.content.Intent.ACTION_SENDTO;
 import static android.service.quicksettings.TileService.ACTION_QS_TILE_PREFERENCES;
+import static com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE;
+import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_SHORT;
 
 public class Utils extends UtilsFlavour{
@@ -321,6 +322,10 @@ public class Utils extends UtilsFlavour{
         return MimePredicate.mimeMatches(DocumentsContract.Document.MIME_TYPE_APK, mimeType);
     }
 
+    public static boolean isPDF(String mimeType){
+        return MimePredicate.mimeMatches(DocumentsContract.Document.MIME_TYPE_PDF, mimeType);
+    }
+
     public static boolean isDir(String mimeType){
         return MimePredicate.mimeMatches(DocumentsContract.Document.MIME_TYPE_DIR, mimeType);
     }
@@ -366,9 +371,9 @@ public class Utils extends UtilsFlavour{
 
     public static Uri getAppProStoreUri(){
         if(isAmazonBuild()){
-            return Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=" + BuildConfig.APPLICATION_ID+".pro" + "&showAll=1");
+            return Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=" + "dev.dworks.apps.anexplorer.pro" + "&showAll=1");
         }
-        return Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID+".pro");
+        return Uri.parse("market://details?id=" + "dev.dworks.apps.anexplorer.pro");
     }
 
     public static boolean hasFeature(Context context, String feature) {
@@ -398,8 +403,12 @@ public class Utils extends UtilsFlavour{
         showSnackBar(activity, activity.getString(msg), LENGTH_SHORT, "ERROR", null);
     }
 
+    public static void showPermanentRetrySnackBar(Activity activity, String text, View.OnClickListener listener){
+        showSnackBar(activity, text, LENGTH_INDEFINITE , "RETRY", listener);
+    }
+
     public static void showRetrySnackBar(Activity activity, String text, View.OnClickListener listener){
-        showSnackBar(activity, text, LENGTH_SHORT , "RETRY", listener);
+        showSnackBar(activity, text, LENGTH_LONG , "RETRY", listener);
     }
 
     public static void showSnackBar(Activity activity, String message){
@@ -427,39 +436,14 @@ public class Utils extends UtilsFlavour{
         return Math.round(px);
     }
 
-    public static void changeThemeStyle(AppCompatDelegate delegate) {
+    public static void changeThemeStyle() {
         int nightMode = Integer.valueOf(SettingsActivity.getThemeStyle());
         AppCompatDelegate.setDefaultNightMode(nightMode);
-        delegate.setLocalNightMode(nightMode);
     }
 
     public static void setAppThemeStyle(Context context) {
         int nightMode = Integer.valueOf(SettingsActivity.getThemeStyle(context));
-        if (nightMode != AppCompatDelegate.MODE_NIGHT_NO) {
-            try {
-                new WebView(context);
-            } catch (Exception e) {
-            }
-        }
         AppCompatDelegate.setDefaultNightMode(nightMode);
-    }
-
-    public static void setActivityThemeStyle(AppCompatDelegate delegate) {
-        int nightMode = Integer.valueOf(SettingsActivity.getThemeStyle());
-        AppCompatDelegate.setDefaultNightMode(nightMode);
-        delegate.setLocalNightMode(nightMode);
-    }
-
-    public static void recreateActivity(Activity activity) {
-        if(!isActivityAlive(activity)){
-            return;
-        }
-        AppCompatDelegate delegate = null;
-        if(activity instanceof ActionBarActivity){
-            delegate = ((ActionBarActivity)activity).getDelegate();
-        }
-        Utils.changeThemeStyle(delegate);
-        activity.recreate();
     }
 
     public static boolean isDarkTheme(){

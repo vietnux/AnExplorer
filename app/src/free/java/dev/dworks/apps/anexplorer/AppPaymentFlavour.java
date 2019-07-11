@@ -46,8 +46,7 @@ public abstract class AppPaymentFlavour extends Application implements BillingPr
 	}
 
 	public static boolean isPurchased() {
-		return Utils.isAmazonBuild() || Utils.isProVersion()
-				|| PreferenceUtils.getBooleanPrefs(PURCHASED);
+		return BuildConfig.DEBUG || Utils.isProVersion() || PreferenceUtils.getBooleanPrefs(PURCHASED);
 	}
 
 	@Override
@@ -161,8 +160,8 @@ public abstract class AppPaymentFlavour extends Application implements BillingPr
 		}
 	}
 
-	public boolean isBillingSupported() {
-		return BillingProcessor.isIabServiceAvailable(getApplicationContext());
+	public static boolean isBillingSupported() {
+		return BillingProcessor.isIabServiceAvailable(DocumentsApplication.getInstance().getApplicationContext());
 	}
 
 	public void purchase(Activity activity, String productId){
@@ -176,6 +175,5 @@ public abstract class AppPaymentFlavour extends Application implements BillingPr
 
 	public static void openPurchaseActivity(Context context){
 		context.startActivity(new Intent(context, PurchaseActivity.class));
-
 	}
 }
