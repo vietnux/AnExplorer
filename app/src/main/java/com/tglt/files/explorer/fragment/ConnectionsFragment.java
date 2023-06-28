@@ -49,6 +49,8 @@ import com.tglt.files.explorer.ui.FloatingActionsMenu;
 import com.tglt.files.explorer.ui.fabs.FabSpeedDial;
 
 import static android.widget.LinearLayout.VERTICAL;
+import static com.tglt.files.explorer.BuildConfig.DROPBOX_CLIENT_ID;
+import static com.tglt.files.explorer.BuildConfig.DROPBOX_CLIENT_KEY;
 import static com.tglt.files.explorer.BuildConfig.GOOGLE_DRIVE_CLIENT_ID;
 import static com.tglt.files.explorer.DocumentsApplication.isSpecialDevice;
 import static com.tglt.files.explorer.DocumentsApplication.isWatch;
@@ -333,7 +335,7 @@ public class ConnectionsFragment extends RecyclerFragment
         new CloudConnection.CreateConnectionTask(activity, cloudStorage).executeOnExecutor(
                 ProviderExecutor.forAuthority(CloudStorageProvider.AUTHORITY+cloudType));
 //        AnalyticsManager.logEvent("add_cloud");
-        Log.e("Cloud ss", cloudType +"  "+GOOGLE_DRIVE_CLIENT_ID +" "+ cloudStorage );
+        Log.e("Cloud ss", cloudType +"  "+DROPBOX_CLIENT_KEY +" "+ cloudStorage );
 //        Log.e("Cloud ss", cloudType +"  " + cloudStorage );
     }
 

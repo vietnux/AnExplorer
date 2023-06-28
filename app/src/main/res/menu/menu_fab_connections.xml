@@ -9,28 +9,32 @@
         android:icon="@drawable/ic_root_gdrive"
         android:orderInCategory="100"
         android:title="@string/cloud_gdrive"
-        support:showAsAction="never" />
+        support:showAsAction="never"
+        android:visible="false"/>
 
     <item
         android:id="@+id/cloud_dropbox"
         android:icon="@drawable/ic_root_dropbox"
         android:orderInCategory="100"
         android:title="@string/cloud_dropbox"
-        support:showAsAction="never" />
+        support:showAsAction="never"
+        android:visible="false"/>
 
     <item
         android:id="@+id/cloud_onedrive"
         android:icon="@drawable/ic_root_onedrive"
         android:orderInCategory="100"
         android:title="@string/cloud_onedrive"
-        support:showAsAction="never" />
+        support:showAsAction="never"
+        android:visible="false"/>
 
     <item
         android:id="@+id/cloud_box"
         android:icon="@drawable/ic_root_box"
         android:orderInCategory="100"
         android:title="@string/cloud_box"
-        support:showAsAction="never" />
+        support:showAsAction="never"
+        android:visible="false"/>
 
     <item
         android:id="@+id/network_ftp"

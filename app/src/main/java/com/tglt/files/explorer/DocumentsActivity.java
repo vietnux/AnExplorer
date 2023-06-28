@@ -1463,6 +1463,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
 
         @Override
         protected DocumentInfo doInBackground(Void... params) {
+            Log.e(TAG, mRoot.toString());
             try {
                 final Uri uri = DocumentsContract.buildDocumentUri(
                         mRoot.authority, mRoot.documentId);

@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -35,6 +36,7 @@ import com.tglt.files.explorer.DocumentsApplication;
 import com.tglt.files.explorer.cursor.RootCursorWrapper;
 import com.tglt.files.explorer.libcore.io.IoUtils;
 import com.tglt.files.explorer.misc.ContentProviderClientCompat;
+import com.tglt.files.explorer.misc.LogUtils;
 import com.tglt.files.explorer.misc.MimePredicate;
 import com.tglt.files.explorer.model.DocumentsContract.Document;
 import com.tglt.files.explorer.provider.DocumentsProvider;
@@ -180,6 +182,7 @@ public class DocumentInfo implements Durable, Parcelable {
     public static DocumentInfo fromUri(ContentResolver resolver, Uri uri)
             throws FileNotFoundException {
         final DocumentInfo info = new DocumentInfo();
+//        LogUtils.LOGD("Err", uri.getPath() );
         info.updateFromUri(resolver, uri);
         return info;
     }
@@ -199,6 +202,7 @@ public class DocumentInfo implements Durable, Parcelable {
             client = DocumentsApplication.acquireUnstableProviderOrThrow(
                     resolver, uri.getAuthority());
             cursor = client.query(uri, null, null, null, null);
+//            Log.e("SS", "updateFromUri"+cursor.toString() );
             if (!cursor.moveToFirst()) {
                 throw new FileNotFoundException("Missing details for " + uri);
             }
