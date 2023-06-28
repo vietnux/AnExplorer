@@ -55,7 +55,26 @@
                 app:divider="@drawable/line_divider"
                 app:showDividers="middle|end">
 
-                <dev.dworks.apps.anexplorer.ui.CompatTextView
+                <com.tglt.files.explorer.ui.CompatTextView
+                    android:id="@+id/action_support"
+                    style="@style/ButtonAppTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:adjustViewBounds="true"
+                    android:drawablePadding="16dp"
+                    android:ellipsize="end"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="?attr/actionBarSize"
+                    android:padding="16dp"
+                    android:text="More info"
+                    android:textAlignment="viewStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:visibility="visible"
+                    app:drawableStart="@drawable/ic_info" />
+
+                <com.tglt.files.explorer.ui.CompatTextView
                     android:id="@+id/action_rate"
                     style="@style/ButtonAppTheme"
                     android:layout_width="match_parent"
@@ -74,26 +93,9 @@
                     android:visibility="visible"
                     app:drawableStart="@drawable/ic_star" />
 
-                <dev.dworks.apps.anexplorer.ui.CompatTextView
-                    android:id="@+id/action_support"
-                    style="@style/ButtonAppTheme"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:adjustViewBounds="true"
-                    android:drawablePadding="16dp"
-                    android:ellipsize="end"
-                    android:gravity="start|center_vertical"
-                    android:minHeight="?attr/actionBarSize"
-                    android:padding="16dp"
-                    android:text="Show us more love"
-                    android:textAlignment="viewStart"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:visibility="visible"
-                    app:drawableStart="@drawable/ic_support" />
 
-                <dev.dworks.apps.anexplorer.ui.CompatTextView
+
+                <com.tglt.files.explorer.ui.CompatTextView
                     android:id="@+id/action_sponsor"
                     style="@style/ButtonAppTheme"
                     android:layout_width="match_parent"
@@ -112,7 +114,7 @@
                     android:visibility="gone"
                     app:drawableStart="@drawable/ic_sponsor" />
 
-                <dev.dworks.apps.anexplorer.ui.CompatTextView
+                <com.tglt.files.explorer.ui.CompatTextView
                     android:id="@+id/action_share"
                     style="@style/ButtonAppTheme"
                     android:layout_width="match_parent"
@@ -131,7 +133,7 @@
                     android:visibility="visible"
                     app:drawableStart="@drawable/ic_share" />
 
-                <dev.dworks.apps.anexplorer.ui.CompatTextView
+                <com.tglt.files.explorer.ui.CompatTextView
                     android:id="@+id/action_feedback"
                     style="@style/ButtonAppTheme"
                     android:layout_width="match_parent"

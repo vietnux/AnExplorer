@@ -72,9 +72,9 @@
 
     <!-- Representation of download progress percentage when running. [CHAR LIMIT=24] -->
     <string name="download_running_percent">In progress, <xliff:g id="number">%d</xliff:g><xliff:g id="percent">%%</xliff:g></string>
-    <string name="name">AnExplorer</string>
-    <string name="app_name">AnExplorer</string>
-    <string name="app_ver">Another Explorer</string>
+    <string name="name">Files Explorer</string>
+    <string name="app_name">Files Explorer</string>
+    <string name="app_ver">Files Explorer</string>
     <string name="pref_folder_size">Display folder size</string>
     <string name="pref_thumbnail">Display file thumbnails</string>
     <string name="pref_hidden">Show hidden files</string>
@@ -117,7 +117,7 @@
     <string name="unsaved_changes">Unsaved Changes</string>
     <string name="unsaved_changes_desc">You have unsaved changes, Save them?</string>
     <string name="unable_to_open_app">Unable to open app</string>
-    <string name="saf_issue">Your System doesnt allow this operation on Secondary storage on Kitkat. Upgrade to Lollipop to solve this issue..</string>
+    <string name="saf_issue">Your System doesnt allow this operation on Secondary storage on Kitkat. Upgrade to Lollipop or higher to solve this issue..</string>
     <string name="rename_error">Failed to rename</string>
     <string name="compress_error">Failed to compress</string>
     <string name="uncompress_error">Failed to uncompress</string>
@@ -176,20 +176,66 @@
     <string name="accent_color">Accent Color</string>
 
     //PRO
-    <string name="app_pro">AnExplorer Pro</string>
-    <string name="app_pro_content">Unlocks extra features, such as the Network &amp; Cloud Storage,
-        Root Storage, USB Storage and removes ads. \n\nThe source code of AnExplorer is available on GitHub.
-        You are welcome to compile the pro version yourself for free.
-        \n\nHowever if you like what I do and love AnExplorer and want us to survive,
-        please support the development and receive updates through the Play Store, consider purchasing
-        AnExplorer Pro.
-        \n\nThank you,\nHari</string>
+    <string name="app_pro">Files Explorer -Pro</string>
+    <string name="app_pro_content">Files Explorer is the only file manager for TV and Watch file management tool.\n
+
+It is Simple, Small, Fast and Efficient File Explorer. Only the file manager to support RTL and show the size of folders across the storage. It is designed for all devices including Phones, Phablets, Tablets, Watch and TV. It\'s fully designed with Material design.\n
+
+Top Features\n
+★ Full Featured It provides all the features of file management including cut, copy, delete, rename, compress, extract. You can check the file details, full integrated search within the file system.\n
+★ All in one Manager is available for all types of Android devices like Phone, Tablet, Phablet, TV, Watch and laptop.\n
+★ Smart Library Explorer Categorize all files into Downloads from internet, Bluetooth from nearby devices, Images, Pictures, Camera Photos, Videos, Movies, Audio, Music, Documents (pdf, Xls, ppt etc), Archives (zip, rar etc).\n
+★ External Storage File Manager Access all files and folder from different types of storages like EMMC, MMC cars, SD Cards, Internal Storage, External Storage, Phone Memory, USB Storage, Flash Drive, Pen Drives, USB OTG with support for a FAT file system. Fully Supports Storage Access Framework and copy/paste between all storages\n
+★ Network File Manager Transfer files with FTP Server from phone to Computer. All you have to do is open the IP address in the browser and all your files on the phone are easily accessible from pc. You can also share files from your phone using BlueTooth, wifi direct other social networking apps etc . You can also browse FTP/ FTPS connection now.\n
+★ Cloud Storage Manager All files in Cloud Storage can be managed. You can create folders, upload and delete files. Directly view pictures and videos.\n
+★ Root File Manager for advanced users to explore, edit, copy, paste and delete files in the root partition of phone storage for development purposes. Explore root folders of the system like data, cache.\n
+★ TV File Manager you can use it to browse internal storage and television storages. You can cut/copy-paste files, check the media and play movies from local storage or USB drives.\n
+★ Watch File Explorer you can use it to browse internal storage and wear storages. You can cut/copy-paste files, check the media and compress/ uncompress files. You can also clear ram and manage your apps on the watch.\n
+★ Chromecast File Manager you can use it to play local media on to your chromecast device like Home, TV or other chromecast devices.\n
+★ RAM &amp; Junk Cleaner - Boost your mobile speed, optimize phone memory by freeing up RAM, and give you a faster and more responsive device.\n
+★ App Manager and Process Manager Quickly and easily uninstall multiple unwanted applications and free up phone storage space which is very valuable.\n
+★ Document Editor you can easily edit files on the go. Support for every type of text files such as HTML, XHTML, TXT etc.\n
+★ Chat Messages File Manager helps you organize your Media for storage space in your phone like Photos, Gifs, Videos, Audio, Stickers, Documents and everything easily.\n
+★ Wifi Easy-share File Manager helps you transfer files between android devices easily. Support multiple files transfer over wifi without creating hotspots with devices on the same wifi network\n
+
+Thank you,\n
+TheGioiLapTrinh.Net</string>
     <string name="restoring_purchase">Restoring purchase…</string>
     <string name="could_not_restore_purchase">Could not restore purchase.</string>
     <string name="purchase">Purchase</string>
     <string name="restore">Restore</string>
     <string name="thank_you">Thank you!</string>
-    <string name="support_app">Support AnExplorer</string>
+    <string name="support_app">Support Files Explorer</string>
     <string name="restored_previous_purchase_please_restart">Restored previous purchase.</string>
 
+    <string-array name="titles_array">
+        <item>Create an empty file</item>
+        <item>Create a file</item>
+        <item>Create a folder</item>
+        <item>Create a file in a folder</item>
+        <item>Create a folder in a folder</item>
+        <item>Create a file in App Folder</item>
+        <item>Create a file with creator activity</item>
+        <item>Retrieve metadata</item>
+        <item>Retrieve contents</item>
+        <item>Listen download progress</item>
+        <item>Edit metadata</item>
+        <item>Append contents</item>
+        <item>Rewrite contents</item>
+        <item>Pin a file to the device</item>
+        <item>Insert/Update custom property</item>
+        <item>Delete custom porperty</item>
+        <item>Query text files</item>
+        <item>Query files in a folder</item>
+        <item>Query non text files</item>
+        <item>Query sorted files</item>
+        <item>Query files shared with me</item>
+        <item>Query files with specific title</item>
+        <item>Query files with custom properties</item>
+        <item>Query starred text files</item>
+        <item>Query text or html files</item>
+        <item>Listening for file changes</item>
+        <item>Subscribe for file changes</item>
+        <item>DriveQuickstart</item>
+    </string-array>
 </resources>

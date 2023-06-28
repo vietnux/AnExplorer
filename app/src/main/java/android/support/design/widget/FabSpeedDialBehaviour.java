@@ -26,7 +26,7 @@ import android.view.View;
 
 import com.google.android.material.appbar.AppBarLayout;import com.google.android.material.snackbar.Snackbar;import java.util.List;
 
-import dev.dworks.apps.anexplorer.ui.fabs.FabSpeedDial;
+import com.tglt.files.explorer.ui.fabs.FabSpeedDial;
 
 import static android.view.View.VISIBLE;
 

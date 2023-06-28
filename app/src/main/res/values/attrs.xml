@@ -77,4 +77,5 @@
         <attr name="colors" format="reference" />
         <attr name="selectedColorIndex" format="integer" />
     </declare-styleable>
+
 </resources>

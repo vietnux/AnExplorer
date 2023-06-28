@@ -12,7 +12,7 @@
         android:summary="%s"
         android:title="@string/pref_theme_style_title" />
 
-    <dev.dworks.apps.anexplorer.ui.MaterialColorPreference
+    <com.tglt.files.explorer.ui.MaterialColorPreference
         android:defaultValue="@color/primaryColor"
         android:dialogTitle="@string/pref_foreground_color_title"
         android:key="primaryColor"
@@ -23,7 +23,7 @@
         app:itemLayout="@layout/pref_layout_color"
         app:color_type="primary" />
 
-    <dev.dworks.apps.anexplorer.ui.MaterialColorPreference
+    <com.tglt.files.explorer.ui.MaterialColorPreference
         android:defaultValue="@color/accentColor"
         android:dialogTitle="@string/pref_foreground_color_title"
         android:key="accentColor"

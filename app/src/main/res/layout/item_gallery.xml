@@ -36,7 +36,7 @@
 
     </FrameLayout>
 
-    <dev.dworks.apps.anexplorer.ui.RecyclerViewPlus
+    <com.tglt.files.explorer.ui.RecyclerViewPlus
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

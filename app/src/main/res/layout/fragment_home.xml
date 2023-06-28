@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<dev.dworks.apps.anexplorer.ui.DirectoryView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.tglt.files.explorer.ui.DirectoryView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,7 +28,7 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <dev.dworks.apps.anexplorer.ui.MaterialProgressBar
+        <com.tglt.files.explorer.ui.MaterialProgressBar
             android:id="@+id/progressBar"
             style="@style/ListProgress"
             android:layout_width="@dimen/progress_bar_size"
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <dev.dworks.apps.anexplorer.ui.RecyclerViewPlus
+        <com.tglt.files.explorer.ui.RecyclerViewPlus
             android:id="@id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,7 +66,7 @@
             android:padding="@dimen/home_padding"
             app:type="custom" />
 
-        <dev.dworks.apps.anexplorer.ui.CompatTextView
+        <com.tglt.files.explorer.ui.CompatTextView
             android:id="@android:id/empty"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
@@ -78,4 +78,4 @@
             app:drawableTop="@drawable/ic_empty_file" />
     </FrameLayout>
 
-</dev.dworks.apps.anexplorer.ui.DirectoryView>
+</com.tglt.files.explorer.ui.DirectoryView>

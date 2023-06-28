@@ -4,9 +4,9 @@
 **A**. FTP ( File Transfer Protocol) is a simple, but yet unique way of transfering files from your Android device (mobile or tablet) to a PC wirelessly on a local network.
 where, your device acts as a server and your PC is the client.
 
-**Q**. How do i setup FTP on AnExplorer?
+**Q**. How do i setup FTP on Files Explorer?
 
-**A**. To set up FTP on AnExplorer, click the computer icon in the app's homepage, and there you can setup your FTP.
+**A**. To set up FTP on Files Explorer, click the computer icon in the app's homepage, and there you can setup your FTP.
 **Note**: The main requirement for FTP on your device, is that your Android device and PC should be connected to the same Wi-Fi network.
 Incase you don’t have the same Wi-Fi network, you can create a hotspot and then use FTP and theres no need for a working internet connection.
 

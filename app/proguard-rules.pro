@@ -63,7 +63,7 @@
 }
 
 # Keep the BuildConfig
--keep class dev.dworks.apps.anexplorer.BuildConfig { *; }
+-keep class com.tglt.files.explorer.BuildConfig { *; }
 
 # Keep the support library
 -keep public class androidx.appcompat.widget.SearchView { *; }

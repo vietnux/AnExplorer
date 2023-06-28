@@ -16,31 +16,126 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="title_save" msgid="2433679664882857999">"Lưu vào"</string>
-    <string name="menu_create_dir" msgid="5947289605844398389">"Tạo thư mục"</string>
-    <string name="menu_grid" msgid="6878021334497835259">"Chế độ xem lưới"</string>
-    <string name="menu_list" msgid="7279285939892417279">"Chế độ xem danh sách"</string>
-    <string name="menu_sort" msgid="7677740407158414452">"Sắp xếp theo"</string>
-    <string name="menu_search" msgid="3816712084502856974">"Tìm kiếm"</string>
-    <string name="menu_settings" msgid="6008033148948428823">"Cài đặt"</string>
-    <string name="menu_open" msgid="432922957274920903">"Mở"</string>
-    <string name="menu_save" msgid="2394743337684426338">"Lưu"</string>
-    <string name="menu_share" msgid="3075149983979628146">"Chia sẻ"</string>
-    <string name="menu_delete" msgid="8138799623850614177">"Xóa"</string>
-    <string name="menu_select" msgid="8711270657353563424">"Chọn \"<xliff:g id="DIRECTORY">^1</xliff:g>\""</string>
-    <string name="mode_selected_count" msgid="459111894725594625">"Đã chọn <xliff:g id="COUNT">%1$d</xliff:g>"</string>
-    <string name="sort_name" msgid="9183560467917256779">"Theo tên"</string>
-    <string name="sort_date" msgid="586080032956151448">"Theo ngày sửa đổi"</string>
-    <string name="sort_size" msgid="3350681319735474741">"Theo kích thước"</string>
-    <string name="drawer_open" msgid="4545466532430226949">"Hiển thị gốc"</string>
-    <string name="drawer_close" msgid="7602734368552123318">"Ẩn gốc"</string>
-    <string name="save_error" msgid="6167009778003223664">"Không lưu tài liệu được"</string>
-    <string name="create_error" msgid="3735649141335444215">"Không thể tạo thư mục"</string>
-    <string name="query_error" msgid="1222448261663503501">"Không truy vấn được tài liệu"</string>
-    <string name="root_recent" msgid="4470053704320518133">"Gần đây"</string>
-    <string name="root_available_bytes" msgid="8568452858617033281">"<xliff:g id="SIZE">%1$s</xliff:g> còn trống"</string>
-    <string name="empty" msgid="7858882803708117596">"Không có mục nào"</string>
-    <string name="toast_no_application" msgid="1339885974067891667">"Không thể mở tệp"</string>
-    <string name="toast_failed_delete" msgid="2180678019407244069">"Không thể xóa một số tài liệu"</string>
-    <string name="share_via" msgid="8966594246261344259">"Chia sẻ qua"</string>
+    <string name="title_save" msgid="2433679664882857999">Lưu vào</string>
+    <string name="menu_create_dir" msgid="5947289605844398389">Tạo thư mục</string>
+    <string name="menu_grid" msgid="6878021334497835259">Chế độ xem lưới</string>
+    <string name="menu_list" msgid="7279285939892417279">Chế độ xem danh sách</string>
+    <string name="menu_sort" msgid="7677740407158414452">Sắp xếp theo</string>
+    <string name="menu_search" msgid="3816712084502856974">Tìm kiếm</string>
+    <string name="menu_settings" msgid="6008033148948428823">Cài đặt</string>
+    <string name="menu_open" msgid="432922957274920903">Mở</string>
+    <string name="menu_save" msgid="2394743337684426338">Lưu</string>
+    <string name="menu_share" msgid="3075149983979628146">Chia sẻ</string>
+    <string name="menu_delete" msgid="8138799623850614177">Xóa</string>
+    <string name="menu_select" msgid="8711270657353563424">Chọn \"<xliff:g id="DIRECTORY">^1</xliff:g>\"</string>
+    <string name="mode_selected_count" msgid="459111894725594625">Đã chọn <xliff:g id="COUNT">%1$d</xliff:g></string>
+    <string name="sort_name" msgid="9183560467917256779">Theo tên</string>
+    <string name="sort_date" msgid="586080032956151448">Theo ngày sửa đổi</string>
+    <string name="sort_size" msgid="3350681319735474741">Theo kích thước</string>
+    <string name="drawer_open" msgid="4545466532430226949">Hiển thị gốc</string>
+    <string name="drawer_close" msgid="7602734368552123318">Ẩn gốc</string>
+    <string name="save_error" msgid="6167009778003223664">Không lưu tài liệu được</string>
+    <string name="create_error" msgid="3735649141335444215">Không thể tạo thư mục</string>
+    <string name="query_error" msgid="1222448261663503501">Không truy vấn được tài liệu</string>
+    <string name="root_recent" msgid="4470053704320518133">Gần đây</string>
+    <string name="root_available_bytes" msgid="8568452858617033281"><xliff:g id="SIZE">%1$s</xliff:g> còn trống</string>
+    <string name="empty" msgid="7858882803708117596">Không có mục nào</string>
+    <string name="toast_no_application" msgid="1339885974067891667">Không thể mở tệp</string>
+    <string name="toast_failed_delete" msgid="2180678019407244069">Không thể xóa một số tài liệu</string>
+    <string name="share_via" msgid="8966594246261344259">Chia sẻ qua</string>
+    <string name="thank_you">Cảm ơn!</string>
+    <string name="restore">Khôi phục</string>
+    <string name="purchase">Mua hàng</string>
+    <string name="restored_previous_purchase_please_restart">Đã khôi phục giao dịch mua trước đó.</string>
+    <string name="support_app">Hỗ trợ Files Explorer</string>
+    <string name="restoring_purchase">Đang khôi phục giao dịch mua...</string>
+    <string name="could_not_restore_purchase">Không thể khôi phục giao dịch mua.</string>
+    <string name="primary_color">Màu chính</string>
+    <string name="toggle_messages">Transfer tới PC</string>
+    <string name="ftp_notif_title">Transfer tới PC bắt đầu</string>
+    <string name="ftp_notif_starting">Transfer tới PC đang bắt đầu</string>
+    <string name="ftp_no_wifi">Đảm bảo rằng bạn đã kết nối với WiFi</string>
+    <string name="ftp_status_not_running">Không chạy</string>
+    <string name="ftp_status_running">Chạy</string>
+    <string name="stop_ftp">Dừng</string>
+    <string name="start_ftp">Bắt đầu</string>
+    <string name="storage_internal">Lưu trữ bộ nhớ trong</string>
+    <string name="ext_media_status_formatting">Đang định dạng...</string>
+    <string name="root_documents">Tài liệu</string>
+    <string name="add">Thêm</string>
+    <string name="save">Lưu lại</string>
+    <string name="unsaved_changes">Chưa lưu thay đổi</string>
+    <string name="pref_foreground_color_title">Màu chính</string>
+    <string name="loading">Đang tải...</string>
+    <string name="enter_pin">Nhập PIN</string>
+    <string name="incorrect_pin">Mã PIN không chính xác</string>
+    <string name="confirm_pin">Xác nhận mã PIN</string>
+    <string name="pin_mismatch">Mã PIN không khớp</string>
+    <string name="pin_set">Đã bật bảo vệ mã PIN</string>
+    <string name="pin_disabled">Đã tắt bảo vệ mã PIN</string>
+    <string name="pref_default_pin_set">Đã tắt bảo vệ mã PIN</string>
+    <string name="pref_title_pin_set">Đặt mã PIN</string>
+    <string name="pref_description_pin_enable">Cung cấp bảo mật cho tập tin của bạn</string>
+    <string name="pref_title_pin_enable">Bật bảo vệ mã PIN</string>
+    <string name="unsaved_changes_desc">Bạn có các thay đổi chưa được lưu, lưu chúng luôn?</string>
+    <string name="unable_to_open_app">Không thể mở ứng dụng</string>
+    <string name="saf_issue">Hệ thống của bạn không cho phép thao tác này với bộ nhớ phụ trên Kitkat. Nâng cấp lên Lollipop hoặc cao hơn để giải quyết vấn đề này ...</string>
+    <string name="rename_error">Không đổi tên được</string>
+    <string name="compress_error">Không nén được</string>
+    <string name="uncompress_error">Không giản nén được</string>
+    <string name="upload_error">Không thể upload</string>
+    <string name="made_with_love">Làm bằng tình yêu</string>
+    <string name="pref_header_advanced">Nâng cao</string>
+    <string name="pref_header_theme">Chủ đề</string>
+    <string name="pref_header_security">Bảo mật</string>
+    <string name="pref_header_general">Chung</string>
+    <string name="pref_recent_media">Hiển thị media gần đây</string>
+    <string name="pref_folder_animations">Bật tính năng ảnh động cho thư mục</string>
+    <string name="pref_hidden">Hiện các file ẩn</string>
+    <string name="pref_thumbnail">Hiển thị hình thu nhỏ</string>
+    <string name="pref_folder_size">Hiển thị kích thước thư mục</string>
+    <string name="download_error">Không thành công</string>
+    <string name="download_queued">Hàng đợi</string>
+    <string name="pref_file_size">Hiển thị kích thước file</string>
+    <string name="pref_advanced_devices">Hiển thị nâng cao</string>
+    <string name="root_processes">Tiến trình</string>
+    <string name="root_connections">Kết nối</string>
+    <string name="root_document">Tài liệu</string>
+    <string name="root_archive">Kho lưu trữ</string>
+    <string name="ext_media_status_mounted">Sẵn sàng</string>
+    <string name="menu_edit">Sửa</string>
+    <string name="menu_add">Thêm</string>
+    <string name="menu_uninstall">Gỡ cài đặt</string>
+    <string name="menu_stop">Dừng</string>
+    <string name="menu_properties">Thuộc tính</string>
+    <string name="root_internal_storage">Bộ nhớ trong</string>
+    <string name="root_external_storage">Bộ nhớ ngoài</string>
+    <string name="ext_media_status_bad_removal">Xóa không an toàn</string>
+    <string name="ext_media_status_unmountable">Bị hỏng</string>
+    <string name="ext_media_status_checking">Đang kiểm tra… </string>
+    <string name="ext_media_status_unmounted">Bị đẩy ra</string>
+    <string name="ext_media_status_removed">Đã xóa</string>
+    <string name="app_pro_content">Files Explorer là trình quản lý tệp duy nhất cho công cụ quản lý tệp TV và Xem.\n
+
+Nó là File Explorer đơn giản, nhỏ, nhanh và hiệu quả. Chỉ trình quản lý tệp hỗ trợ RTL và hiển thị kích thước của các thư mục trên bộ nhớ. Nó được thiết kế cho tất cả các thiết bị bao gồm Điện thoại, Phablet, Máy tính bảng, Đồng hồ và TV. Nó được thiết kế hoàn toàn với thiết kế Material design.\n
+
+Các tính năng hàng đầu\n
+★ Đầy đủ tính năng Nó cung cấp tất cả các tính năng quản lý tập tin bao gồm cắt, sao chép, xóa, đổi tên, nén, giải nén. Bạn có thể kiểm tra chi tiết tệp, tìm kiếm tích hợp đầy đủ trong hệ thống tệp.\n
+★ Tất cả trong một Trình quản lý có sẵn cho tất cả các loại thiết bị Android như Điện thoại, Máy tính bảng, Phablet, TV, Đồng hồ và máy tính xách tay.\n
+★ Smart Library Explorer Phân loại tất cả các tệp thành Tải xuống từ internet, Bluetooth từ các thiết bị lân cận, Hình ảnh, Ảnh, Ảnh máy ảnh, Video, Phim, Âm thanh, Nhạc, Tài liệu (pdf, Xls, ppt, v.v.), Lưu trữ (zip, rar, v.v.).\n
+★ Trình quản lý tệp lưu trữ bên ngoài Truy cập tất cả các tệp và thư mục từ các loại lưu trữ khác nhau như EMMC, ô tô MMC, Thẻ SD, Bộ nhớ trong, Bộ nhớ ngoài, Bộ nhớ điện thoại, Bộ nhớ USB, Ổ đĩa flash, Ổ bút, USB OTG với hỗ trợ hệ thống tệp FAT. Hỗ trợ đầy đủ Khung truy cập lưu trữ và sao chép / dán giữa tất cả các kho\n
+★ Trình quản lý tệp mạng Truyền tệp bằng Máy chủ FTP từ điện thoại sang Máy tính. Tất cả những gì bạn phải làm là mở địa chỉ IP trong trình duyệt và tất cả các tệp của bạn trên điện thoại có thể dễ dàng truy cập từ máy tính. Bạn cũng có thể chia sẻ tệp từ điện thoại của mình bằng BlueTooth, wifi trực tiếp các ứng dụng mạng xã hội khác, v.v. Bạn cũng có thể duyệt qua kết nối FTP / FTPS ngay bây giờ.\n
+★ Trình quản lý lưu trữ đám mây Tất cả các tệp trong Bộ nhớ đám mây có thể được quản lý. Bạn có thể tạo thư mục, tải lên và xóa tệp. Trực tiếp xem hình ảnh và video.\n
+★ Trình quản lý tệp gốc cho người dùng nâng cao khám phá, chỉnh sửa, sao chép, dán và xóa tệp trong phân vùng gốc của bộ nhớ điện thoại cho mục đích phát triển. Khám phá các thư mục gốc của hệ thống như dữ liệu, bộ nhớ đệm.\n
+★ Trình quản lý tệp TV bạn có thể sử dụng nó để duyệt các kho lưu trữ nội bộ và truyền hình. Bạn có thể cắt / sao chép-dán tệp, kiểm tra phương tiện và phát phim từ bộ nhớ cục bộ hoặc ổ USB.\n
+★ Watch File Explorer bạn có thể sử dụng nó để duyệt bộ nhớ trong và mặc các kho lưu trữ. Bạn có thể cắt / sao chép-dán tệp, kiểm tra phương tiện và nén / giải nén tệp. Bạn cũng có thể xóa ram và quản lý các ứng dụng của mình trên đồng hồ.\n
+★ Trình quản lý tệp Chromecast bạn có thể sử dụng nó để phát phương tiện cục bộ trên thiết bị chromecast của mình như Home, TV hoặc các thiết bị chromecast khác.\n
+★ RAM &amp; Junk Cleaner - Tăng tốc độ di động của bạn, tối ưu hóa bộ nhớ điện thoại bằng cách giải phóng RAM và cung cấp cho bạn một thiết bị nhanh hơn và nhạy hơn.\n
+★ Trình quản lý ứng dụng và Trình quản lý quy trình Nhanh chóng và dễ dàng gỡ cài đặt nhiều ứng dụng không mong muốn và giải phóng không gian lưu trữ điện thoại rất có giá trị.\n
+★ Trình chỉnh sửa tài liệu bạn có thể dễ dàng chỉnh sửa tệp khi đang di chuyển. Hỗ trợ cho mọi loại tệp văn bản như HTML, XHTML, TXT, v.v.\n
+★ Trình quản lý tệp tin nhắn trò chuyện giúp bạn tổ chức Phương tiện của mình để có không gian lưu trữ trong điện thoại như Ảnh, Gifs, Video, Âm thanh, Hình dán, Tài liệu và mọi thứ một cách dễ dàng.\n
+★ Wifi Easy-share File Manager giúp bạn chuyển các tập tin giữa các thiết bị Android một cách dễ dàng. Hỗ trợ truyền nhiều tập tin qua wifi mà không cần tạo điểm phát sóng với các thiết bị trên cùng một mạng wifi\n
+
+Thank you,\n
+TheGioiLapTrinh.Net</string>
 </resources>
