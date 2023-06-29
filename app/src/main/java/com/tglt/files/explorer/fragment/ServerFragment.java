@@ -1,8 +1,5 @@
 package com.tglt.files.explorer.fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +29,13 @@ import static com.tglt.files.explorer.misc.ConnectionUtils.ACTION_FTPSERVER_STAR
 import static com.tglt.files.explorer.misc.ConnectionUtils.ACTION_FTPSERVER_STOPPED;
 import static com.tglt.files.explorer.misc.ConnectionUtils.ACTION_START_FTPSERVER;
 import static com.tglt.files.explorer.misc.ConnectionUtils.ACTION_STOP_FTPSERVER;
+import static com.tglt.files.explorer.misc.ConnectionUtils.TAG;
 import static com.tglt.files.explorer.misc.Utils.EXTRA_ROOT;
 import static com.tglt.files.explorer.misc.Utils.isWatch;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class ServerFragment extends Fragment implements View.OnClickListener {
 
@@ -123,7 +126,7 @@ public class ServerFragment extends Fragment implements View.OnClickListener {
         Intent intent = new Intent(ACTION_START_FTPSERVER);
         intent.putExtras(getArguments());
 
-        if(DocumentsApplication.isWatch()) {
+        if(!DocumentsApplication.isWatch()) {
             Intent serverService = new Intent(getActivity(), ConnectionsService.class);
             serverService.putExtras(intent.getExtras());
             if (!ConnectionUtils.isServerRunning(getActivity())) {
@@ -138,7 +141,7 @@ public class ServerFragment extends Fragment implements View.OnClickListener {
         Intent intent = new Intent(ACTION_STOP_FTPSERVER);
         intent.putExtras(getArguments());
 
-        if(DocumentsApplication.isWatch()){
+        if(!DocumentsApplication.isWatch()){
             Intent serverService = new Intent(getActivity(), ConnectionsService.class);
             serverService.putExtras(intent.getExtras());
             getActivity().stopService(serverService);
@@ -165,6 +168,7 @@ public class ServerFragment extends Fragment implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
+        Log.e(TAG, " ==== ???"+view.getId() + " = "+R.id.action);
         switch (view.getId()){
             case R.id.action:
                 if(!ConnectionUtils.isServerRunning(getActivity())){

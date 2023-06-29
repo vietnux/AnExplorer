@@ -1,3 +1,7 @@
 include ":app"
 include ':nativetemplates'
 project(':nativetemplates').projectDir = new File(rootDir, 'googleads-mobile-android-native-templates-master/googleads-mobile-android-native-templates-master/nativetemplates/')
+
+//include ':storage'
+//project(':storage').projectDir = new File(rootDir, 'Storager-master/')
+

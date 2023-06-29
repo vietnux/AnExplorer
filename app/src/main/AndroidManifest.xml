@@ -44,8 +44,8 @@
         android:name=".DocumentsApplication"
         android:allowBackup="true"
         android:banner="@drawable/banner"
-        android:icon="@drawable/ic_launcher"
-        android:roundIcon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
         android:label="@string/name"
         tools:replace="android:label"
         android:requestLegacyExternalStorage="true"
@@ -157,7 +157,25 @@
                 android:value="true" />
         </activity>
 
-        <receiver android:name=".receiver.PackageReceiver">
+        <!-- Dropbox AuthActivity -->
+<!--        <activity-->
+<!--            android:name="com.dropbox.core.android.AuthActivity"-->
+<!--            android:configChanges="orientation|keyboard"-->
+<!--            android:launchMode="singleTask">-->
+<!--            <intent-filter>-->
+
+<!--                &lt;!&ndash; Insert your app key after “db-  ...” &ndash;&gt;-->
+<!--                <data android:scheme="db-pez75bsg9kwcdar" />-->
+
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+        <receiver android:name=".receiver.PackageReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
@@ -165,7 +183,8 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.MountReceiver">
+        <receiver android:name=".receiver.MountReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
                 <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
@@ -181,7 +200,8 @@
             android:name=".NoteActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="sensor"
-            android:theme="@style/DocumentsTheme.Note">
+            android:theme="@style/DocumentsTheme.Note"
+            android:exported="true">
             <intent-filter android:label="Text Viewer"
                 tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
@@ -214,7 +234,8 @@
             android:name=".service.ServerService"
             android:icon="@drawable/ic_root_server"
             android:label="@string/toggle_messages"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -374,14 +395,15 @@
                 <action android:name="com.google.android.gms.drive.events.HANDLE_EVENT" />
             </intent-filter>
         </service>
-        <activity
-            android:name="com.tglt.files.explorer.demo.HomeActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--        <activity-->
+<!--            android:name="com.tglt.files.explorer.demo.HomeActivity"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity android:name=".demo.QueryFilesActivity" />
         <activity android:name=".demo.RetrieveContentsActivity" />
         <activity android:name=".demo.RetrieveContentsWithProgressDialogActivity" />
@@ -397,7 +419,9 @@
         <activity android:name=".demo.RetrieveMetadataActivity" />
         <activity android:name=".demo.CreateFileInFolderActivity" />
         <activity android:name=".demo.CreateFolderInFolderActivity" />
-        <activity android:name=".demo.QueryFilesInFolderActivity" >
+
+        <activity android:name=".demo.QueryFilesInFolderActivity"
+            android:exported="true">
             <meta-data android:name="com.google.android.apps.drive.APP_ID" android:value="id=369425841449" />
             <intent-filter>
                 <action android:name="com.google.android.apps.drive.DRIVE_OPEN" />

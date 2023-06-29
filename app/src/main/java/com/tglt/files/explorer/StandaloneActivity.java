@@ -16,8 +16,6 @@
 package com.tglt.files.explorer;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ComponentName;
@@ -34,6 +32,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
@@ -140,7 +140,7 @@ public class StandaloneActivity extends BaseActivity {
                     android.R.style.TextAppearance_DeviceDefault_Widget_ActionBar_Title);
         }
         setSupportActionBar(mToolbar);
-        RootsCommonFragment.show(getFragmentManager(), null);
+        RootsCommonFragment.show(getSupportFragmentManager(), null);
         if (!mState.restored) {
             new RestoreStackTask().execute();
         } else {
@@ -332,7 +332,7 @@ public class StandaloneActivity extends BaseActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        final FragmentManager fm = getFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         final RootInfo root = getCurrentRoot();
         final DocumentInfo cwd = getCurrentDirectory();
         final MenuItem createDir = menu.findItem(R.id.menu_create_dir);
@@ -407,7 +407,7 @@ public class StandaloneActivity extends BaseActivity {
      */
     private void setUserSortOrder(int sortOrder) {
         mState.userSortOrder = sortOrder;
-        Fragment fragment = DirectoryFragment.get(getFragmentManager());
+        Fragment fragment = DirectoryFragment.get(getSupportFragmentManager());
         if(fragment instanceof DirectoryFragment) {
             final DirectoryFragment directory = (DirectoryFragment) fragment;
             directory.onUserSortOrderChanged();
@@ -418,7 +418,7 @@ public class StandaloneActivity extends BaseActivity {
      */
     private void setUserMode(int mode) {
         mState.userMode = mode;
-        Fragment fragment = DirectoryFragment.get(getFragmentManager());
+        Fragment fragment = DirectoryFragment.get(getSupportFragmentManager());
         if(fragment instanceof DirectoryFragment) {
             final DirectoryFragment directory = (DirectoryFragment) fragment;
             directory.onUserModeChanged();
@@ -426,7 +426,7 @@ public class StandaloneActivity extends BaseActivity {
     }
     @Override
     public void setPending(boolean pending) {
-        final SaveFragment save = SaveFragment.get(getFragmentManager());
+        final SaveFragment save = SaveFragment.get(getSupportFragmentManager());
         if (save != null) {
             save.setPending(pending);
         }
@@ -596,7 +596,7 @@ public class StandaloneActivity extends BaseActivity {
     }
 
     private void onCurrentDirectoryChanged(int anim) {
-        final FragmentManager fm = getFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         final RootInfo root = getCurrentRoot();
         final DocumentInfo cwd = getCurrentDirectory();
         if (cwd == null) {
@@ -700,7 +700,7 @@ public class StandaloneActivity extends BaseActivity {
     }
     @Override
     public void onDocumentPicked(DocumentInfo doc) {
-        final FragmentManager fm = getFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         if (doc.isDirectory()) {
             mState.stack.push(doc);
             mState.stackTouched = true;

@@ -1,9 +1,10 @@
 package com.tglt.files.explorer.common;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.tglt.files.explorer.R;
 import com.tglt.files.explorer.fragment.RootsFragment;

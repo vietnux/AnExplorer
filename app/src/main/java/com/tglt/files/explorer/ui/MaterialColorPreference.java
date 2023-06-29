@@ -18,7 +18,6 @@ package com.tglt.files.explorer.ui;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
@@ -30,6 +29,8 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.preference.Preference;
+
+import androidx.fragment.app.DialogFragment;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import androidx.appcompat.app.AlertDialog;
 import android.util.AttributeSet;
@@ -115,33 +116,33 @@ public class MaterialColorPreference extends Preference {
         }
     }
 
-    @Override
-    protected void onClick() {
-        super.onClick();
-
-        ColorDialogFragment fragment = ColorDialogFragment.newInstance();
-        fragment.setPreference(this);
-        fragment.setColorType(colorType);
-
-        Activity activity = (Activity) getContext();
-        activity.getFragmentManager().beginTransaction()
-                .add(fragment, getFragmentTag())
-                .commit();
-    }
-
-    @Override
-    protected void onAttachedToActivity() {
-        super.onAttachedToActivity();
-
-        Activity activity = (Activity) getContext();
-        ColorDialogFragment fragment = (ColorDialogFragment) activity
-                .getFragmentManager().findFragmentByTag(getFragmentTag());
-        if (fragment != null) {
-            // re-bind preference to fragment
-            fragment.setPreference(this);
-            fragment.setColorType(colorType);
-        }
-    }
+//    @Override
+//    protected void onClick() {
+//        super.onClick();
+//
+//        ColorDialogFragment fragment = ColorDialogFragment.newInstance();
+//        fragment.setPreference(this);
+//        fragment.setColorType(colorType);
+//
+//        Activity activity = (Activity) getContext();
+//        activity.getFragmentManager().beginTransaction()
+//                .add(fragment, getFragmentTag())
+//                .commit();
+//    }
+//
+//    @Override
+//    protected void onAttachedToActivity() {
+//        super.onAttachedToActivity();
+//
+//        Activity activity = (Activity) getContext();
+//        ColorDialogFragment fragment = (ColorDialogFragment) activity
+//                .getFragmentManager().findFragmentByTag(getFragmentTag());
+//        if (fragment != null) {
+//            // re-bind preference to fragment
+//            fragment.setPreference(this);
+//            fragment.setColorType(colorType);
+//        }
+//    }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
@@ -245,7 +246,9 @@ public class MaterialColorPreference extends Preference {
                     if(colorType == 0) {
                         mShadePicker.setColors(ColorPalette.getColors(context, mColorPicker.getColor()));
                         mShadePicker.setSelectedColor(mColorPicker.getColor());
-                        ((SettingsActivity)getActivity()).changeActionBarColor(mColorPicker.getColor());
+                        SettingsActivity setActivity = new SettingsActivity();
+//                        ((SettingsActivity)getActivity()).changeActionBarColor(mColorPicker.getColor());
+                        setActivity.changeActionBarColor(mColorPicker.getColor());
                     }
                 }
             });
@@ -274,7 +277,9 @@ public class MaterialColorPreference extends Preference {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     if(colorType == 0) {
-                        ((SettingsActivity)getActivity()).changeActionBarColor(SettingsActivity.getPrimaryColor());
+                        SettingsActivity setActivity = new SettingsActivity();
+//                        ((SettingsActivity)getActivity()).changeActionBarColor(SettingsActivity.getPrimaryColor());
+                        setActivity.changeActionBarColor(SettingsActivity.getPrimaryColor());
                     }
                     dismiss();
                 }

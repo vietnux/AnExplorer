@@ -20,8 +20,6 @@ package com.tglt.files.explorer;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ComponentName;
@@ -49,6 +47,8 @@ import androidx.core.view.MenuItemCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -293,19 +293,19 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
         if (mState.action == ACTION_CREATE) {
             final String mimeType = getIntent().getType();
             final String title = getIntent().getStringExtra(IntentUtils.EXTRA_TITLE);
-            SaveFragment.show(getFragmentManager(), mimeType, title);
+            SaveFragment.show(getSupportFragmentManager(), mimeType, title);
         } else if (mState.action == ACTION_OPEN_TREE) {
-            PickFragment.show(getFragmentManager());
+            PickFragment.show(getSupportFragmentManager());
         }
 
         if (mState.action == ACTION_BROWSE) {
             final Intent moreApps = new Intent(getIntent());
             moreApps.setComponent(null);
             moreApps.setPackage(null);
-            RootsCommonFragment.show(getFragmentManager(), moreApps);
+            RootsCommonFragment.show(getSupportFragmentManager(), moreApps);
         } else if (mState.action == ACTION_OPEN || mState.action == ACTION_CREATE
                 || mState.action == ACTION_GET_CONTENT || mState.action == ACTION_OPEN_TREE) {
-            RootsCommonFragment.show(getFragmentManager(), new Intent());
+            RootsCommonFragment.show(getSupportFragmentManager(), new Intent());
         }
 
         if (!mState.restored) {
@@ -383,7 +383,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
                     mRoots.updateAsync();
                     final RootInfo root = getCurrentRoot();
                     if(root.isHome()){
-                        HomeFragment homeFragment = HomeFragment.get(getFragmentManager());
+                        HomeFragment homeFragment = HomeFragment.get(getSupportFragmentManager());
                         if(null != homeFragment) {
                             homeFragment.reloadData();
                         }
@@ -446,7 +446,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
         PINDialogFragment pinFragment = new PINDialogFragment();
         pinFragment.setDialog(d);
         pinFragment.setCancelable(false);
-        pinFragment.show(getFragmentManager(), "PIN Dialog");
+        pinFragment.show(getSupportFragmentManager(), "PIN Dialog");
 	}
 
 
@@ -860,7 +860,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
     }
 
     public void updateMenuItems(Menu menu){
-        final FragmentManager fm = getFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         final RootInfo root = getCurrentRoot();
         final DocumentInfo cwd = getCurrentDirectory();
 
@@ -1061,7 +1061,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
      */
     private void setUserSortOrder(int sortOrder) {
         mState.userSortOrder = sortOrder;
-        Fragment fragment = DirectoryFragment.get(getFragmentManager());
+        Fragment fragment = DirectoryFragment.get(getSupportFragmentManager());
         if(fragment instanceof DirectoryFragment) {
             final DirectoryFragment directory = (DirectoryFragment) fragment;
             if (directory != null) {
@@ -1075,7 +1075,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
      */
     private void setUserMode(int mode) {
         mState.userMode = mode;
-        Fragment fragment = DirectoryFragment.get(getFragmentManager());
+        Fragment fragment = DirectoryFragment.get(getSupportFragmentManager());
         if(fragment instanceof DirectoryFragment) {
             final DirectoryFragment directory = (DirectoryFragment) fragment;
             if (directory != null) {
@@ -1088,7 +1088,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
      * refresh Data currently shown
      */
     private void refreshData() {
-        Fragment fragment = DirectoryFragment.get(getFragmentManager());
+        Fragment fragment = DirectoryFragment.get(getSupportFragmentManager());
         if(fragment instanceof DirectoryFragment) {
             final DirectoryFragment directory = (DirectoryFragment) fragment;
             if (directory != null) {
@@ -1099,7 +1099,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
 
 
     public void setPending(boolean pending) {
-        final SaveFragment save = SaveFragment.get(getFragmentManager());
+        final SaveFragment save = SaveFragment.get(getSupportFragmentManager());
         if (save != null) {
             save.setPending(pending);
         }
@@ -1306,7 +1306,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
         if(!Utils.isActivityAlive(DocumentsActivity.this)){
             return;
         }
-        final FragmentManager fm = getFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         final RootInfo root = getCurrentRoot();
         DocumentInfo cwd = getCurrentDirectory();
 
@@ -1579,7 +1579,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
     }
 
     public void onDocumentPicked(DocumentInfo doc) {
-        final FragmentManager fm = getFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         if (doc.isDirectory() || DocumentArchiveHelper.isSupportedArchiveType(doc.mimeType)) {
             mState.stack.push(doc);
             mState.stackTouched = true;
@@ -1915,14 +1915,14 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
                 Utils.showError(DocumentsActivity.this, R.string.save_error);
                 //}
             }
-            MoveFragment.hide(getFragmentManager());
+            MoveFragment.hide(getSupportFragmentManager());
             setMovePending(false);
             refreshData();
         }
     }
 
     public void setMovePending(boolean pending) {
-        final MoveFragment move = MoveFragment.get(getFragmentManager());
+        final MoveFragment move = MoveFragment.get(getSupportFragmentManager());
         if (move != null) {
             move.setPending(pending);
         }

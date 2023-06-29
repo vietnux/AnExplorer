@@ -18,7 +18,7 @@ package com.tglt.files.explorer.ui;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
+//import android.app.DialogFragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -29,6 +29,12 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.preference.Preference;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import androidx.appcompat.app.AlertDialog;
 import android.util.AttributeSet;
@@ -108,31 +114,34 @@ public class ColorPreference extends Preference {
         }
     }
 
-    @Override
-    protected void onClick() {
-        super.onClick();
-
-        ColorDialogFragment fragment = ColorDialogFragment.newInstance();
-        fragment.setPreference(this);
-
-        Activity activity = (Activity) getContext();
-        activity.getFragmentManager().beginTransaction()
-                .add(fragment, getFragmentTag())
-                .commit();
-    }
-
-    @Override
-    protected void onAttachedToActivity() {
-        super.onAttachedToActivity();
-
-        Activity activity = (Activity) getContext();
-        ColorDialogFragment fragment = (ColorDialogFragment) activity
-                .getFragmentManager().findFragmentByTag(getFragmentTag());
-        if (fragment != null) {
-            // re-bind preference to fragment
-            fragment.setPreference(this);
-        }
-    }
+//    @Override
+//    protected void onClick() {
+//        super.onClick();
+//
+//        ColorDialogFragment fragment = ColorDialogFragment.newInstance();
+//        fragment.setPreference(this);
+//
+//        @NonNull FragmentManager activity = null;
+////        activity.getFragmentManager().beginTransaction()
+////                .add(fragment, getFragmentTag())
+////                .commit();
+//        activity.beginTransaction()
+//                .add(fragment, getFragmentTag())
+//                .commit();
+//    }
+//
+//    @Override
+//    protected void onAttachedToActivity() {
+//        super.onAttachedToActivity();
+//
+//        Activity activity = (Activity) getContext();
+//        ColorDialogFragment fragment = (ColorDialogFragment) activity
+//                .getFragmentManager().findFragmentByTag(getFragmentTag());
+//        if (fragment != null) {
+//            // re-bind preference to fragment
+//            fragment.setPreference(this);
+//        }
+//    }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {

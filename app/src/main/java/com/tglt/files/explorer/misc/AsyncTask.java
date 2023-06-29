@@ -588,7 +588,7 @@ public abstract class AsyncTask<Params, Progress, Result> {
      * @see #execute(Object[])
      */
     public final AsyncTask<Params, Progress, Result> executeOnExecutor(Executor exec, Params... params) {
-        Log.e("Cloud ss1", "Híc "+mStatus);
+        Log.e("Cloud ss1", "Híc "+mStatus + " == "+Status.PENDING);
         if (mStatus != Status.PENDING) {
             switch (mStatus) {
                 case RUNNING:
@@ -599,8 +599,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
                             + " the task has already been executed "
                             + "(a task can be executed only once)");
 				case PENDING:
-//                    Log.e("Cloud ss1", "Híc");
-					break;
+                    Log.e("Cloud ss1", "Híc");
+//                    throw new IllegalStateException("Cannot execute task:"
+//                            + " pendding connect");
+                    break;
 				default:
 //                    Log.e("Cloud ss2", "Híc");
 					break;

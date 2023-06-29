@@ -53,6 +53,8 @@ import static com.tglt.files.explorer.BaseActivity.State.SORT_ORDER_SIZE;
 import static com.tglt.files.explorer.BaseActivity.TAG;
 import static com.tglt.files.explorer.model.DocumentInfo.getCursorInt;
 
+import androidx.loader.content.Loader.ForceLoadContentObserver;
+
 public class DirectoryLoader extends AsyncTaskLoader<DirectoryResult> {
 
     private static final String[] SEARCH_REJECT_MIMES = new String[] { };//Document.MIME_TYPE_DIR };

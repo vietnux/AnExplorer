@@ -19,13 +19,15 @@ package com.tglt.files.explorer.misc;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Loader;
+//import android.content.Loader;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.OperationCanceledException;
 import android.os.SystemClock;
 import android.util.Log;
+
+import androidx.loader.content.Loader;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;

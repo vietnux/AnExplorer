@@ -17,9 +17,6 @@
 
 package com.tglt.files.explorer.fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +24,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 
@@ -146,7 +147,7 @@ public class MoveFragment extends Fragment implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		final DocumentsActivity activity = DocumentsActivity.get(MoveFragment.this);
+		final DocumentsActivity activity = (DocumentsActivity) DocumentsActivity.get(MoveFragment.this);
 		switch (v.getId()) {
 		case android.R.id.button1:
 			if (mReplaceTarget != null) {
@@ -156,7 +157,7 @@ public class MoveFragment extends Fragment implements OnClickListener{
 			break;
 
 		case android.R.id.button2:
-			getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+			getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
 			break;
 		}
 	}

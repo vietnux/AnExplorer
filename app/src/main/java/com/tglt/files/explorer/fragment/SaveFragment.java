@@ -17,9 +17,6 @@
 
 package com.tglt.files.explorer.fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -31,6 +28,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.tglt.files.explorer.BaseActivity;
 import com.tglt.files.explorer.R;
@@ -161,7 +162,7 @@ public class SaveFragment extends Fragment implements OnClickListener{
 			break;
 
 		case android.R.id.button2:
-			getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+			getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
 			break;
 		}
 	}

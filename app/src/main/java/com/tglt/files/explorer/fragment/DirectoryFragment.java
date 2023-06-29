@@ -18,10 +18,7 @@
 package com.tglt.files.explorer.fragment;
 
 import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.LoaderManager.LoaderCallbacks;
+//import android.app.LoaderManager.LoaderCallbacks;
 import android.app.ProgressDialog;
 import android.content.ContentProviderClient;
 import android.content.ContentResolver;
@@ -29,7 +26,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.Loader;
+import androidx.loader.content.Loader;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
@@ -38,6 +35,10 @@ import android.os.Parcelable;
 import android.provider.Settings;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.view.ActionMode;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -1371,7 +1372,7 @@ public class DirectoryFragment extends RecyclerFragment implements MenuItem.OnMe
 	}
 
 	private void moveDocument(ArrayList<DocumentInfo> docs, boolean move) {
-		MoveFragment.show(getFragmentManager(), docs, move);
+		MoveFragment.show(((BaseActivity) getActivity()).getSupportFragmentManager(), docs, move);
 //		Bundle params = new Bundle();
 //		params.putBoolean(FILE_MOVE, move);
 //		params.putInt(FILE_COUNT, docs.size());

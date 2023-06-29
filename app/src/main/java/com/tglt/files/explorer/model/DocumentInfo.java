@@ -196,6 +196,7 @@ public class DocumentInfo implements Durable, Parcelable {
     }
 
     public void updateFromUri(ContentResolver resolver, Uri uri) throws FileNotFoundException {
+        Log.e("SS", "updateFromUri"+uri.toString() );
         ContentProviderClient client = null;
         Cursor cursor = null;
         try {

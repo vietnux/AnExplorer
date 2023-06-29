@@ -1,12 +1,7 @@
 package com.tglt.files.explorer.fragment;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.LoaderManager;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.DialogInterface;
-import android.content.Loader;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
@@ -15,6 +10,11 @@ import android.provider.BaseColumns;
 import android.support.design.internal.NavigationMenu;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 
 import android.util.Log;
 import android.view.LayoutInflater;

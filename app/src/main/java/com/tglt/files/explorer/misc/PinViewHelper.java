@@ -17,7 +17,6 @@
 package com.tglt.files.explorer.misc;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -27,6 +26,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.fragment.app.DialogFragment;
+
 import com.tglt.files.explorer.R;
 import com.tglt.files.explorer.setting.SettingsActivity;
 

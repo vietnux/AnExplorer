@@ -9,7 +9,7 @@ if (keystoreProperties.exists()) {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
 //    applicationVariants.all { variant ->
 //        variant.outputs.all {
@@ -21,8 +21,8 @@ android {
         applicationId "com.tglt.files.explorer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1 //rootProject.generateVersionCode(1)
-        versionName "1.0" //rootProject.generateVersionName()
+        versionCode rootProject.generateVersionCode(1)
+        versionName rootProject.generateVersionName()
         vectorDrawables.useSupportLibrary = true
         buildConfigField "String", "LICENSE_KEY",  "$props.LICENSE_KEY"
         buildConfigField "String", "DROPBOX_CLIENT_ID",  "$props.DROPBOX_CLIENT_ID"
@@ -44,14 +44,14 @@ android {
 //            signingConfig signingConfigs.release
             minifyEnabled false
             shrinkResources false
-            useProguard false
+//            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
-            useProguard true
+//            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -109,8 +109,8 @@ android {
         abortOnError true
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
@@ -150,6 +150,9 @@ dependencies {
     implementation 'com.google.api-client:google-api-client:1.30.9'
     implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
     implementation 'com.google.apis:google-api-services-drive:v3-rev110-1.23.0'
+
+//    implementation 'com.dropbox.core:dropbox-core-sdk:5.4.5'
+//    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
     implementation project(':nativetemplates')

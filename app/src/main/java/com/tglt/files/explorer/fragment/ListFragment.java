@@ -17,7 +17,6 @@
 
 package com.tglt.files.explorer.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -27,6 +26,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.tglt.files.explorer.R;
 import com.tglt.files.explorer.misc.CrashReportingManager;
