@@ -254,6 +254,8 @@ public class NumberProgressBar extends View {
 
         if(mDrawReachedBar){
             canvas.drawRect(mReachedRectF,mReachedBarPaint);
+//            canvas.drawArc(mReachedRectF,10.5f, 10.5f, false, mReachedBarPaint);
+//            canvas.drawOval( mReachedRectF, mReachedBarPaint);
         }
 
         if(mDrawUnreachedBar) {

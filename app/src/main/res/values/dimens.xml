@@ -65,7 +65,7 @@
 
     <dimen name="expander_inset">8dp</dimen>
 
-    <integer name="recycler_type">2</integer>
+    <integer name="recycler_type">1</integer>
     <dimen name="big_spacing">24dp</dimen>
 
     <dimen name="card_padding">8dp</dimen>

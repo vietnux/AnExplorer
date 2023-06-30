@@ -37,6 +37,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -121,7 +122,6 @@ public class HomeFragment extends RecyclerFragment implements HomeAdapter.OnItem
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         totalSpanSize = getResources().getInteger(R.integer.home_span);
         mActivity = ((BaseActivity) getActivity());
         mIconHelper = new IconHelper(mActivity, MODE_GRID);

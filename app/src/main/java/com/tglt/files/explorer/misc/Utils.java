@@ -539,7 +539,7 @@ public class Utils {
     public static void openFeedback(Activity activity){
         ShareCompat.IntentBuilder
                 .from(activity)
-                .setEmailTo(new String[]{"hakr@dworks.in"})
+                .setEmailTo(new String[]{"vietnux@yahoo.com"})
                 .setSubject("Files Explorer Feedback" + getSuffix())
                 .setType("text/email")
                 .setChooserTitle("Send Feedback")

@@ -41,11 +41,13 @@ android {
     }
     buildTypes {
         debug {
+//            applicationIdSuffix ".debug"
 //            signingConfig signingConfigs.release
             minifyEnabled false
             shrinkResources false
 //            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable true
         }
         release {
             signingConfig signingConfigs.release

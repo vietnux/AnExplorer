@@ -20,6 +20,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,7 +79,12 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity {
     }
 
     public ActionBar getSupportActionBar() {
-        return getDelegate().getSupportActionBar();
+        try {
+            return getDelegate().getSupportActionBar();
+        } catch (Exception e) {
+            Log.e("Setting", e.getMessage());
+        }
+        return null;
     }
 
     public void setSupportActionBar(@Nullable Toolbar toolbar) {

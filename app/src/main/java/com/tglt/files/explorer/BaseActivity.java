@@ -16,9 +16,12 @@
 package com.tglt.files.explorer;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,7 +30,10 @@ import androidx.core.content.ContextCompat;
 import androidx.collection.ArrayMap;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AbsListView;
@@ -208,7 +214,7 @@ public abstract class BaseActivity extends ActionBarActivity {
     }
 
     private static String[] storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    public static final int REQUEST_STORAGE = 47;
+    public static final int REQUEST_STORAGE = PackageManager.PERMISSION_GRANTED;//47;
 
     protected void requestStoragePermissions() {
         if(PermissionUtil.hasStoragePermission(this)) {
@@ -222,7 +228,21 @@ public abstract class BaseActivity extends ActionBarActivity {
                     }
                 });
             } else {
-                ActivityCompat.requestPermissions(this, storagePermissions, REQUEST_STORAGE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager() || !PermissionUtil.hasStoragePermission(this) ) {
+                    Utils.showRetrySnackBar(this, "Storage permissions are needed for Exploring.", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            try {
+                                Intent intent =
+                                        new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION) .setData(Uri.parse("package:" + getPackageName()));
+                                startActivity(intent);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Failed to initial activity to grant all files access", e);
+                            }
+                        }
+                    });
+                } else
+                   ActivityCompat.requestPermissions(this, storagePermissions, REQUEST_STORAGE);
             }
         }
     }

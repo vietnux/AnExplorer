@@ -325,8 +325,7 @@ public class DocumentsActivity extends BaseActivity implements MenuItem.OnMenuIt
                 } else{
                     try {
                         new RestoreStackTask().execute();
-                    }
-                    catch (SQLiteFullException e){
+                    } catch (SQLiteFullException e){
                         CrashReportingManager.logException(e);
                     }
             	}

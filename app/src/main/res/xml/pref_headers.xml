@@ -2,19 +2,19 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <header
-        android:icon="@drawable/ic_dummy_icon"
+        android:icon="@drawable/ic_general"
         android:fragment="com.tglt.files.explorer.setting.GeneralPreferenceFragment"
         android:title="@string/pref_header_general" />
     <header
-        android:icon="@drawable/ic_dummy_icon"
+        android:icon="@drawable/ic_style"
         android:fragment="com.tglt.files.explorer.setting.ThemePreferenceFragment"
         android:title="@string/pref_header_theme" />
     <header
-        android:icon="@drawable/ic_dummy_icon"
+        android:icon="@drawable/ic_security"
         android:fragment="com.tglt.files.explorer.setting.SecurityPreferenceFragment"
         android:title="@string/pref_header_security" />
     <header
-        android:icon="@drawable/ic_dummy_icon"
+        android:icon="@drawable/ic_advanced"
         android:fragment="com.tglt.files.explorer.setting.AdvancedPreferenceFragment"
         android:title="@string/pref_header_advanced" />
 

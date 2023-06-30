@@ -32,7 +32,9 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.List;
 
@@ -151,10 +153,18 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//        this.getBaseContext().set
+//        View view = super.onCreateView(null, null, savedInstanceState);
+//        view.setBackgroundColor(getResources().getColor(Color.blue(1)) );
+
+//        Log.e(TAG, " : "+getThemeStyle());
+//        setThemeStyle( 1 );
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         changeActionBarColor(0);
         res = getResources();
         actionBarColor = getPrimaryColor(this);
+
     }
 
 	@Override
@@ -271,7 +281,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     }
 
     public void changeActionBarColor(int newColor) {
-
 		int color = newColor != 0 ? newColor : SettingsActivity.getPrimaryColor(this);
 		Drawable colorDrawable = new ColorDrawable(color);
 
@@ -302,6 +311,11 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
 	public static void logSettingEvent(String key){
 //        AnalyticsManager.logEvent("settings_"+key.toLowerCase());
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.e(TAG, "== Back");
     }
 
 }
